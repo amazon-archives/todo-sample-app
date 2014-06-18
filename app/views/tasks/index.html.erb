@@ -1,0 +1,26 @@
+<ul class="list-group" id="tasks">
+  <% @tasks.each do |task| %>
+    <% if task.completed_flag %>
+      <li class='list-group-item completed' id="task_<%= task.id %>">
+        <%= link_to("Mark Incomplete",
+            task_path(id: task.id, completed_flag: false),
+            method: "patch",
+            class: "btn btn-sm btn-danger" ) %>
+        <%= task.name %>
+      </li>
+    <% else %>
+      <li class='list-group-item' id="task_<%= task.id %>">
+        <%= link_to('Mark Complete',
+            task_path(id: task.id, completed_flag: true),
+            method: 'patch',
+            :class => 'btn btn-sm btn-success')  %>
+        <%= task.name %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= form_tag("/tasks", method: "post") do %>
+  <%= text_field_tag(:name) %>
+  <%= submit_tag("Add Task") %>
+<% end %>
