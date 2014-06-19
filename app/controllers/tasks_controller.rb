@@ -4,18 +4,22 @@ class TasksController < ApplicationController
   end
 
   def create
-    respond_to do |format|
-      @task = Task.new(task_create_params)
-      @task.save
-      format.html { redirect_to tasks_path }
+    @task = Task.new(task_create_params)
+    if @task.save
+      redirect_to tasks_path
+    else
+      flash[:error] = "Task creation failed!"
+      redirect_to tasks_path
     end
   end
 
   def update
-    respond_to do |format|
-      @task = Task.find(params[:id])
-      @task.update(task_update_params)
-      format.html { redirect_to tasks_path }
+    @task = Task.find(params[:id])
+    if @task.update(task_update_params)
+      redirect_to tasks_path
+    else
+      flash[:error] = "Task failed to update!"
+      redirect_to tasks_path
     end
   end
 

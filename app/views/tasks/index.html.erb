@@ -1,4 +1,12 @@
 <div id="task-index">
+  <% if msg = flash[:error] %>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+        &times;
+      </button>
+      <strong><%= msg %></strong>
+    </div>
+  <% end %>
   <ul class="list-group" id="tasks">
     <% @tasks.each do |task| %>
       <% if task.completed_flag %>
