@@ -15,14 +15,17 @@
  */
 @import "bootstrap";
 
-#tasks {
-    .list-group-item {
-        font-weight: bold;
-        &.completed {
-            background-color: #76EE00;
+#task-index {
+    margin: 5em;
+    #tasks {
+        .list-group-item {
+            font-weight: bold;
+            &.completed {
+                background-color: #76EE00;
+            }
         }
-    }
-    .btn {
-        margin-right: 2em;
+        .btn {
+            margin-right: 2em;
+        }
     }
 }
