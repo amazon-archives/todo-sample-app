@@ -1,9 +1,0 @@
-<%
-  completed = "No"
-  completed = "Yes" if @task.completed_flag
-%>
-<div id="<%= @task.name %>">
-  <h2><%= @task.name %></h2>
-  <p>Completed? <%= completed %></p>
-</div>
-

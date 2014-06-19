@@ -3,15 +3,11 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
-  def show
-    @task = Task.find(params[:id])
-  end
-
   def create
     respond_to do |format|
       @task = Task.new(task_create_params)
       @task.save
-      format.html { redirect_to root_path }
+      format.html { redirect_to tasks_path }
     end
   end
 
@@ -19,7 +15,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       @task = Task.find(params[:id])
       @task.update(task_update_params)
-      format.html { redirect_to :back }
+      format.html { redirect_to tasks_path }
     end
   end
 

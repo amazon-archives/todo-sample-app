@@ -2,7 +2,7 @@
   <ul class="list-group" id="tasks">
     <% @tasks.each do |task| %>
       <% if task.completed_flag %>
-        <li class='list-group-item completed' id="task_<%= task.id %>">
+        <li class='list-group-item task-item completed' id="task_<%= task.id %>">
           <%= link_to("Mark Incomplete",
             task_path(id: task.id, completed_flag: false),
             method: "patch",
@@ -10,7 +10,7 @@
           <%= task.name %>
         </li>
       <% else %>
-        <li class='list-group-item' id="task_<%= task.id %>">
+        <li class='list-group-item task-item' id="task_<%= task.id %>">
           <%= link_to('Mark Complete',
             task_path(id: task.id, completed_flag: true),
             method: 'patch',
@@ -19,10 +19,11 @@
         </li>
       <% end %>
     <% end %>
+    <li class='list-group-item' id="new-task-form">
+      <%= form_tag("/tasks", method: "post") do %>
+        <%= submit_tag("Add New Task", class: "btn btn-sm btn-primary") %>
+        <%= text_field_tag(:name) %>
+      <% end %>
+    </li>
   </ul>
-
-  <%= form_tag("/tasks", method: "post") do %>
-    <%= submit_tag("Add Task", class: "btn btn-sm btn-primary") %>
-    <%= text_field_tag(:name) %>
-  <% end %>
 </div>

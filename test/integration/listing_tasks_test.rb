@@ -17,7 +17,7 @@ class ListingTasksTest < ActionDispatch::IntegrationTest
     assert_equal 200, response.status
     assert_select 'ul' do
       assert_select 'li' do |elements|
-        assert_equal 2, elements.size
+        assert_equal 3, elements.size
       end
     end
   end

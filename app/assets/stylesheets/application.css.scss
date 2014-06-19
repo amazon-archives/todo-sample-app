@@ -19,7 +19,9 @@
     margin: 5em;
     #tasks {
         .list-group-item {
-            font-weight: bold;
+            &.task-item {
+                font-weight: bold;
+            }
             &.completed {
                 background-color: #76EE00;
             }
