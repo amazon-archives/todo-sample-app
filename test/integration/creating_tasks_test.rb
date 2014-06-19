@@ -3,6 +3,8 @@ require 'test_helper'
 class CreatingTasksTest < ActionDispatch::IntegrationTest
   test 'can create a new task' do
     post tasks_path, name: "New Task"
+    assert_redirected_to(root_path)
+
     tasks = Task.all
     assert_equal(1, tasks.size)
     task = tasks.first

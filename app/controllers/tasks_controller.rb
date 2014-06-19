@@ -11,7 +11,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       @task = Task.new(task_create_params)
       @task.save
-      format.html { redirect_to tasks_path }
+      format.html { redirect_to root_path }
     end
   end
 
