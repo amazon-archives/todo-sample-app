@@ -15,17 +15,20 @@
             task_path(id: task.id, completed_flag: false),
             method: "patch",
             class: "btn btn-sm btn-danger" ) %>
-          <%= task.name %>
-        </li>
       <% else %>
         <li class='list-group-item task-item' id="task_<%= task.id %>">
           <%= link_to('Mark Complete',
             task_path(id: task.id, completed_flag: true),
             method: 'patch',
             :class => 'btn btn-sm btn-success')  %>
-          <%= task.name %>
-        </li>
       <% end %>
+        <%= link_to("Delete",
+            task_path(id: task.id),
+            method: "delete",
+            class: "btn btn-sm btn-warning",
+            data: { confirm: "Are you sure?" }) %>
+        <%= task.name %>
+      </li>
     <% end %>
     <li class='list-group-item' id="new-task-form">
       <%= form_tag("/tasks", method: "post") do %>
