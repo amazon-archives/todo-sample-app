@@ -13,3 +13,13 @@ where you can create tasks, edit details about them, and update their status.
 
 While some additional functionality may be added over time to make the example
 more practical, the application is designed to be simple and easy to understand.
+
+## The Tutorial Series on the AWS Ruby Development Blog
+
+You can learn how to deploy and run this application on Amazon Web Services at
+the [AWS Ruby Development Blog](http://ruby.awsblog.com/blog/tag/TodoApp).
+There, we have tagged all of the posts that build on this sample app with the
+"TodoApp" tag.
+
+If you have any questions or issues, do feel free to reach out to us on the
+blog or in the Issues tab for this repo, we'd love your feedback!
